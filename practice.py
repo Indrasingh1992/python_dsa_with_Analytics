@@ -1,41 +1,15 @@
-def search_number(nums,target):
-    def binary_search_left(nums,target):
-        left,right=0,len(nums)-1
-        first_index=-1
-
-        while left<=right:
-            mid=(left+right)//2
-            if nums[mid]==target:
-                first_index=mid
-                right=mid-1
-
-            if nums[mid]<target:
-                left=mid+1
-            else:
-                right=mid-1
-        return first_index
+def plus_one(digits):
+    n = len(digits)
     
-    def binary_search_right(nums,target):
-        left,right=0,len(nums)-1
-        last_index=-1
-
-        while left<=right:
-            mid=(left+right)//2
-            if nums[mid]==target:
-                last_index=mid
-                left=mid+1
-
-            if nums[mid]<target:
-                left=mid+1
-            else:
-                right=mid-1
-        return last_index
+    for i in range(n - 1, -1, -1):
+        if digits[i] < 9:
+            digits[i] += 1
+            return digits
+        digits[i] = 0  # Set current digit to 0 and continue
     
-    start = binary_search_left(nums, target)
-    end = binary_search_right(nums, target)
- 
-    return [start, end]
+    # If all digits were 9 (e.g., 999 → 1000), add a new leading 1
+    return [1] + digits
 
-nums=[5, 7, 7, 8, 8, 10]
-target=8
-print (search_number(nums,target))
+# Example Test Cases
+print(plus_one([1, 2, 3]))    # Output: [1, 2, 4]
+print(plus_one([9, 9, 9]))    # Output: [1, 0, 0, 0]
