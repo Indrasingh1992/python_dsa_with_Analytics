@@ -1,0 +1,8 @@
+Hello How are you?
+I am good
+Krish is my name
+Welcome to the courseAppend operation taking place!
+Append operation taking place!
+First line 
+Second line 
+Third line
